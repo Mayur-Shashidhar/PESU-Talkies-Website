@@ -4,6 +4,10 @@ A modern, fully responsive web application for the PESU Talkies film club, built
 
 ---
 
+## Website Link : https://pesu-talkies-website.vercel.app/
+
+---
+
 ## 🚀 Features & Effects (2025 Update)
 - **Mobile & Desktop Responsive:** All pages and features adapt for mobile and laptop screens, including hamburger menu for navigation and fully visible posters.
 - **Landing Page (Overview):** About the club, animated typewriter motto, club logo, and contact form with cycling animated title and emoji. Quotes section titled "From The Vault" with animated cycling quotes.
