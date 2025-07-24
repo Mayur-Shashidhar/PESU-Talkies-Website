@@ -156,29 +156,19 @@ const Overview = () => {
 
   // Updated handleSubmit for backend integration
   const handleSubmit = async (e) => {
-  e.preventDefault();
-
-  const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
-
-  try {
-    const res = await fetch(`${apiUrl}/api/contact`, {
+    e.preventDefault();
+    const res = await fetch("http://localhost:5000/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
+      body: JSON.stringify({ name: form.name, email: form.email, message: form.message }),
     });
-
+    // eslint-disable-next-line no-unused-vars
+    // const data = await res.json();
     if (res.ok) alert("Message sent! 🎉");
     else alert("Failed to send. Try again.");
-    
     setSubmitted(true);
     setForm({ name: '', email: '', message: '' });
-
-  } catch (err) {
-    console.error("Error sending message:", err);
-    alert("Something went wrong.");
-  }
-};
-
+  };
 
   return (
     <div className="about-container">
