@@ -157,7 +157,7 @@ const Overview = () => {
   // Updated handleSubmit for backend integration
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:5000/api/contact", {
+    const res = await fetch("https://pesu-talkies-website-utr0.onrender.com/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name: form.name, email: form.email, message: form.message }),
