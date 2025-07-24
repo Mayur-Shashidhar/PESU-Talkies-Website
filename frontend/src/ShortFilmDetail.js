@@ -100,6 +100,9 @@ const ShortFilmDetail = () => {
   const { slug } = useParams();
   const film = filmData[slug];
 
+  // Detect mobile screen
+  const isMobile = window.innerWidth <= 700;
+
   if (!film) {
     return (
       <div className="page-container">
@@ -113,33 +116,67 @@ const ShortFilmDetail = () => {
     <div className="page-container">
       <Link to="/projects" style={{ color: '#FFD600', textDecoration: 'none', fontWeight: 'bold' }} data-aos="fade-down">&larr; Back to Projects</Link>
       <h2 style={{ color: '#FFD600', marginTop: '1.5rem' }} data-aos="fade-down">{film.name}</h2>
-      <div className="film-detail-flex" style={{ marginTop: '1.5rem', background: '#181818', borderRadius: 16, padding: '1.5rem 1.2rem', color: '#fff' }} data-aos="fade-up">
-        <div className="film-detail-info">
-          <p><strong>Release Date:</strong> <span style={{ color: '#FFD600' }}>{film.releaseDate}</span></p>
-          <div><strong>Premise:</strong> {formatStory(film.story)}</div>
-          {film.crew && (
-            <div style={{ marginTop: '1.2rem' }}><strong>Crew:</strong><br />{film.crew.split('\n').map((line, idx) => <span key={idx}>{line}<br /></span>)}</div>
-          )}
-          {film.cast && (
-            <div style={{ marginTop: '1.2rem' }}><strong>Cast:</strong><br />{film.cast.split('\n').map((line, idx) => <span key={idx}>{line}<br /></span>)}</div>
-          )}
-          {film.trailerUrl && (
-            <p style={{ marginTop: '1.2rem' }}><strong>Teaser:</strong> <a href={film.trailerUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#FFD600', textDecoration: 'underline', fontWeight: 'bold' }}>Click here to watch teaser</a></p>
-          )}
-          <p><strong>Watch:</strong> <a href={film.watchUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#FFD600', textDecoration: 'underline', fontWeight: 'bold' }}>Click here to watch</a></p>
-        </div>
-        {slug !== 'vam-tv' && posterMap[slug] && (
-          <div className="film-poster-screen">
-            <div className="film-screen-curtain">
-              <img
-                src={process.env.PUBLIC_URL + '/posters/' + posterMap[slug]}
-                alt={film.name + ' Poster'}
-                className="film-screen-img"
-              />
-            </div>
+      {/* Desktop/Laptop layout */}
+      {!isMobile ? (
+        <div className="film-detail-flex" style={{ marginTop: '1.5rem', background: '#181818', borderRadius: 16, padding: '1.5rem 1.2rem', color: '#fff' }} data-aos="fade-up">
+          <div className="film-detail-info">
+            <p><strong>Release Date:</strong> <span style={{ color: '#FFD600' }}>{film.releaseDate}</span></p>
+            <div><strong>Premise:</strong> {formatStory(film.story)}</div>
+            {film.crew && (
+              <div style={{ marginTop: '1.2rem' }}><strong>Crew:</strong><br />{film.crew.split('\n').map((line, idx) => <span key={idx}>{line}<br /></span>)}</div>
+            )}
+            {film.cast && (
+              <div style={{ marginTop: '1.2rem' }}><strong>Cast:</strong><br />{film.cast.split('\n').map((line, idx) => <span key={idx}>{line}<br /></span>)}</div>
+            )}
+            {film.trailerUrl && (
+              <p style={{ marginTop: '1.2rem' }}><strong>Teaser:</strong> <a href={film.trailerUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#FFD600', textDecoration: 'underline', fontWeight: 'bold' }}>Click here to watch teaser</a></p>
+            )}
+            <p><strong>Watch:</strong> <a href={film.watchUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#FFD600', textDecoration: 'underline', fontWeight: 'bold' }}>Click here to watch</a></p>
           </div>
-        )}
-      </div>
+          {slug !== 'vam-tv' && posterMap[slug] && (
+            <div className="film-poster-screen">
+              <div className="film-screen-curtain">
+                <img
+                  src={process.env.PUBLIC_URL + '/posters/' + posterMap[slug]}
+                  alt={film.name + ' Poster'}
+                  className="film-screen-img"
+                />
+              </div>
+            </div>
+          )}
+        </div>
+      ) : (
+        // Mobile layout: poster between Premise and Crew
+        <div className="film-detail-flex" style={{ flexDirection: 'column', marginTop: '1.5rem', background: '#181818', borderRadius: 16, padding: '1.5rem 1.2rem', color: '#fff' }} data-aos="fade-up">
+          <div className="film-detail-info">
+            <p><strong>Release Date:</strong> <span style={{ color: '#FFD600' }}>{film.releaseDate}</span></p>
+            <div><strong>Premise:</strong> {formatStory(film.story)}</div>
+          </div>
+          {slug !== 'vam-tv' && posterMap[slug] && (
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '1.2rem 0' }}>
+              <div style={{ border: '3px solid #FFD600', borderRadius: '10px', boxShadow: '0 4px 24px #FFD60055', background: '#222', display: 'inline-block', width: '180px', height: '260px', padding: 0, overflow: 'hidden' }}>
+                <img
+                  src={process.env.PUBLIC_URL + '/posters/' + posterMap[slug]}
+                  alt={film.name + ' Poster'}
+                  style={{ display: 'block', borderRadius: '7px', width: '100%', height: '100%', objectFit: 'cover', boxShadow: 'none', margin: 0 }}
+                />
+              </div>
+            </div>
+          )}
+          <div className="film-detail-info">
+            {film.crew && (
+              <div style={{ marginTop: '1.2rem' }}><strong>Crew:</strong><br />{film.crew.split('\n').map((line, idx) => <span key={idx}>{line}<br /></span>)}</div>
+            )}
+            {film.cast && (
+              <div style={{ marginTop: '1.2rem' }}><strong>Cast:</strong><br />{film.cast.split('\n').map((line, idx) => <span key={idx}>{line}<br /></span>)}</div>
+            )}
+            {film.trailerUrl && (
+              <p style={{ marginTop: '1.2rem' }}><strong>Teaser:</strong> <a href={film.trailerUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#FFD600', textDecoration: 'underline', fontWeight: 'bold' }}>Click here to watch teaser</a></p>
+            )}
+            <p><strong>Watch:</strong> <a href={film.watchUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#FFD600', textDecoration: 'underline', fontWeight: 'bold' }}>Click here to watch</a></p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

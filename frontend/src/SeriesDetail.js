@@ -36,6 +36,9 @@ const SeriesDetail = () => {
   const { slug } = useParams();
   const series = seriesData[slug];
 
+  // Detect mobile screen
+  const isMobile = window.innerWidth <= 700;
+
   if (!series) {
     return (
       <div className="page-container">
@@ -49,41 +52,83 @@ const SeriesDetail = () => {
     <div className="page-container">
       <Link to="/projects" style={{ color: '#FFD600', textDecoration: 'none', fontWeight: 'bold' }} data-aos="fade-down">&larr; Back to Projects</Link>
       <h2 style={{ color: '#FFD600', marginTop: '1.5rem' }} data-aos="fade-down">{series.name}</h2>
-      <div className="film-detail-flex" style={{ marginTop: '1.5rem', background: '#181818', borderRadius: 16, padding: '1.5rem 1.2rem', color: '#fff' }} data-aos="fade-up">
-        <div className="film-detail-info">
-          <p><strong>Release Date:</strong> <span style={{ color: '#FFD600' }}>{series.releaseDate || '[TBA]'}</span></p>
-          <div><strong>Premise:</strong> {formatStory(series.story)}</div>
-          {slug === 'missed-connections-in-taxi' && series.crew && (
-            <div style={{ marginTop: '1.2rem' }}><strong>Crew:</strong><br />{series.crew.split('\n').map((line, idx) => <span key={idx}>{line}<br /></span>)}</div>
-          )}
-          {slug === 'missed-connections-in-taxi' && series.cast && (
-            <div style={{ marginTop: '1.2rem' }}><strong>Cast:</strong><br />{series.cast.split('\n').map((line, idx) => <span key={idx}>{line}<br /></span>)}</div>
-          )}
-          {series.episodes && (
-            <div style={{ marginTop: '1.2rem' }}>
-              <strong>Episodes:</strong>
-              <ul style={{ margin: '0.5rem 0 0 1rem', padding: 0 }}>
-                {series.episodes.map((ep, idx) => (
-                  <li key={idx} style={{ marginBottom: '0.5rem' }}>
-                    <a href={ep.url} target="_blank" rel="noopener noreferrer" style={{ color: '#FFD600', textDecoration: 'underline', fontWeight: 'bold' }}>{ep.title}</a>
-                  </li>
-                ))}
-              </ul>
+      {/* Desktop/Laptop layout */}
+      {!isMobile ? (
+        <div className="film-detail-flex" style={{ marginTop: '1.5rem', background: '#181818', borderRadius: 16, padding: '1.5rem 1.2rem', color: '#fff' }} data-aos="fade-up">
+          <div className="film-detail-info">
+            <p><strong>Release Date:</strong> <span style={{ color: '#FFD600' }}>{series.releaseDate || '[TBA]'}</span></p>
+            <div><strong>Premise:</strong> {formatStory(series.story)}</div>
+            {slug === 'missed-connections-in-taxi' && series.crew && (
+              <div style={{ marginTop: '1.2rem' }}><strong>Crew:</strong><br />{series.crew.split('\n').map((line, idx) => <span key={idx}>{line}<br /></span>)}</div>
+            )}
+            {slug === 'missed-connections-in-taxi' && series.cast && (
+              <div style={{ marginTop: '1.2rem' }}><strong>Cast:</strong><br />{series.cast.split('\n').map((line, idx) => <span key={idx}>{line}<br /></span>)}</div>
+            )}
+            {series.episodes && (
+              <div style={{ marginTop: '1.2rem' }}>
+                <strong>Episodes:</strong>
+                <ul style={{ margin: '0.5rem 0 0 1rem', padding: 0 }}>
+                  {series.episodes.map((ep, idx) => (
+                    <li key={idx} style={{ marginBottom: '0.5rem' }}>
+                      <a href={ep.url} target="_blank" rel="noopener noreferrer" style={{ color: '#FFD600', textDecoration: 'underline', fontWeight: 'bold' }}>{ep.title}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+          {slug === 'missed-connections-in-taxi' && (
+            <div className="film-poster-screen">
+              <div className="film-screen-curtain">
+                <img
+                  src={process.env.PUBLIC_URL + '/posters/MISSED CONNECTIONS IN TAXI.jpg'}
+                  alt={series.name + ' Poster'}
+                  className="film-screen-img"
+                />
+              </div>
             </div>
           )}
         </div>
-        {slug === 'missed-connections-in-taxi' && (
-          <div className="film-poster-screen">
-            <div className="film-screen-curtain">
-              <img
-                src={process.env.PUBLIC_URL + '/posters/MISSED CONNECTIONS IN TAXI.jpg'}
-                alt={series.name + ' Poster'}
-                className="film-screen-img"
-              />
-            </div>
+      ) : (
+        // Mobile layout: poster between Premise and Crew
+        <div className="film-detail-flex" style={{ flexDirection: 'column', marginTop: '1.5rem', background: '#181818', borderRadius: 16, padding: '1.5rem 1.2rem', color: '#fff' }} data-aos="fade-up">
+          <div className="film-detail-info">
+            <p><strong>Release Date:</strong> <span style={{ color: '#FFD600' }}>{series.releaseDate || '[TBA]'}</span></p>
+            <div><strong>Premise:</strong> {formatStory(series.story)}</div>
           </div>
-        )}
-      </div>
+          {slug === 'missed-connections-in-taxi' && (
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '1.2rem 0' }}>
+              <div style={{ border: '3px solid #FFD600', borderRadius: '10px', boxShadow: '0 4px 24px #FFD60055', background: '#222', display: 'inline-block', width: '180px', height: '260px', padding: 0, overflow: 'hidden' }}>
+                <img
+                  src={process.env.PUBLIC_URL + '/posters/MISSED CONNECTIONS IN TAXI.jpg'}
+                  alt={series.name + ' Poster'}
+                  style={{ display: 'block', borderRadius: '7px', width: '100%', height: '100%', objectFit: 'cover', boxShadow: 'none', margin: 0 }}
+                />
+              </div>
+            </div>
+          )}
+          <div className="film-detail-info">
+            {slug === 'missed-connections-in-taxi' && series.crew && (
+              <div style={{ marginTop: '1.2rem' }}><strong>Crew:</strong><br />{series.crew.split('\n').map((line, idx) => <span key={idx}>{line}<br /></span>)}</div>
+            )}
+            {slug === 'missed-connections-in-taxi' && series.cast && (
+              <div style={{ marginTop: '1.2rem' }}><strong>Cast:</strong><br />{series.cast.split('\n').map((line, idx) => <span key={idx}>{line}<br /></span>)}</div>
+            )}
+            {series.episodes && (
+              <div style={{ marginTop: '1.2rem' }}>
+                <strong>Episodes:</strong>
+                <ul style={{ margin: '0.5rem 0 0 1rem', padding: 0 }}>
+                  {series.episodes.map((ep, idx) => (
+                    <li key={idx} style={{ marginBottom: '0.5rem' }}>
+                      <a href={ep.url} target="_blank" rel="noopener noreferrer" style={{ color: '#FFD600', textDecoration: 'underline', fontWeight: 'bold' }}>{ep.title}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
