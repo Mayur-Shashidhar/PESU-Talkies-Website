@@ -209,7 +209,7 @@ function findBestResponse(userMessage) {
   
   // Events (second priority)
   if (message.includes('announcements') || message.includes('announcement')) {
-    return chatbotResponses['events'];
+    return chatbotResponses['announcements'];
   }
   if (message.includes('cinifest')) {
     return chatbotResponses['cinifest'];
