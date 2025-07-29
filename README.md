@@ -1,10 +1,24 @@
 # PESU Talkies Club Website
 
-A modern, fully responsive web application for the PESU Talkies film club, built with React. This site showcases the club's activities, projects, domains, and leadership, and provides a platform for new members to connect and join.
+A modern, fully responsive **full-stack web application** for the PESU Talkies film club, featuring a React frontend and Express.js backend. This comprehensive platform showcases the club's activities, projects, domains, and leadership while providing interactive features for member engagement and recruitment.
 
 ---
 
-## Website Link : https://pesu-talkies-website.vercel.app/
+## 🌐 Live Website
+**Production URL:** https://pesu-talkies-website.vercel.app/
+
+**Last Updated:** July 2025
+
+---
+
+## 🏗️ Project Architecture
+
+This is a **full-stack application** with the following structure:
+- **Frontend**: React.js SPA (Single Page Application)
+- **Backend**: Express.js REST API server
+- **Database**: File-based data storage (no external database required)
+- **Email Service**: Nodemailer integration for contact forms
+- **Deployment**: Frontend on Vercel, Backend deployable separately
 
 ---
 
@@ -40,14 +54,34 @@ A modern, fully responsive web application for the PESU Talkies film club, built
 
 ## 🗂️ Project Structure
 
-- `src/`
-  - `App.js` — Main app, navigation, and routing (with hamburger menu logic)
-  - `Overview.js` — Landing page (about, motto, contact form, domains, animated quotes, events, From The Vault)
-  - `Heads.js` — Club Heads and Domain Heads listing
-  - `HeadDetail.js` — Detail page for each head (with animated photo reveal)
-  - `Domains.js` — List of all domains
-  - `DomainDetail.js` — Detail page for each domain
-  - `Projects.js` — Short Films and Series overview (with animated posters, correct order, and mobile scaling)
+```
+PESU-Talkies-Website/
+├── README.md
+├── backend/                    # Express.js API Server
+│   ├── package.json           # Backend dependencies
+│   └── server.js             # Main server file with email functionality
+├── frontend/                  # React.js Application
+│   ├── package.json          # Frontend dependencies
+│   ├── public/               # Static assets
+│   │   ├── index.html
+│   │   ├── pesu-talkies-logo.png
+│   │   ├── pesu-logo.jpg
+│   │   ├── events/           # Event poster images
+│   │   ├── heads/            # Team member profile photos
+│   │   └── posters/          # Movie/series poster images
+│   └── src/                  # React components and styles
+│       ├── App.js            # Main app with routing & navbar
+│       ├── Overview.js       # Landing page with animations
+│       ├── Heads.js          # Team members display
+│       ├── Projects.js       # Films and series showcase
+│       ├── Domains.js        # Club domains overview
+│       ├── FollowUs.js       # Social media links
+│       ├── Announcements.js  # Club updates
+│       ├── Recruitments.js   # Joining information
+│       └── [Detail Pages]    # Individual pages for heads/projects/domains
+```
+
+---
   - `ShortFilmDetail.js` — Detail page for each short film (premise, crew/cast, teaser/watch links, animated poster)
   - `SeriesDetail.js` — Detail page for each series (premise, crew/cast, animated poster)
   - `Recruitments.js` — Recruitment info (placeholder)
@@ -60,32 +94,113 @@ A modern, fully responsive web application for the PESU Talkies film club, built
 ---
 
 ## 🛠️ Technologies Used
-- **React** (with Create React App)
-- **React Router** for navigation
-- **AOS** (Animate On Scroll) for scroll animations
-- **react-icons** for crisp, scalable social icons
-- **Custom CSS** for modern, responsive design and all effects
-- **Express** (backend for contact form)
-- **Nodemailer** (for sending emails)
+
+### **Frontend Stack**
+- **React 19.1.0** - Modern component-based UI framework
+- **React Router DOM 7.7.0** - Client-side routing and navigation
+- **React Icons 5.5.0** - Scalable icon library
+- **AOS 2.3.4** - Animate On Scroll library for smooth animations
+- **Framer Motion 12.23.6** - Advanced animations and gestures
+- **GSAP 3.13.0** - High-performance animations
+- **Custom CSS** - Responsive design with glassmorphism effects
+
+### **Backend Stack**
+- **Express.js 5.1.0** - Fast, unopinionated web framework
+- **Nodemailer 7.0.5** - Email sending functionality
+- **CORS 2.8.5** - Cross-Origin Resource Sharing middleware
+- **dotenv 17.2.0** - Environment variables management
+- **Node.js** - JavaScript runtime environment
+
+### **Deployment & DevOps**
+- **Vercel** - Frontend hosting and deployment
+- **Git** - Version control
+- **npm** - Package management
+
+---
+
+## ⚙️ Backend API Details
+
+The backend server (`backend/server.js`) provides:
+
+### **Contact Form API**
+- **Endpoint**: `POST /api/contact`
+- **Port**: 5000 (development)
+- **Functionality**:
+  - Receives contact form submissions from the frontend
+  - Sends email notifications to club administrators (`pesutalkies@pes.edu`)
+  - Sends auto-reply confirmation to users
+  - Handles email delivery errors gracefully
+
+### **Email Configuration**
+- **Service**: Gmail SMTP
+- **Authentication**: Environment variables (`EMAIL_USER`, `EMAIL_PASS`)
+- **Features**:
+  - Professional email templates
+  - Automated responses
+  - Error handling and logging
+
+### **API Response Format**
+```json
+{
+  "success": true/false,
+  "message": "Status message"
+}
+```
+
+### **Environment Variables Required**
+```env
+EMAIL_USER=your-gmail-address@gmail.com
+EMAIL_PASS=your-app-specific-password
+```
 
 ---
 
 ## ⚡ Getting Started
 
+### **Prerequisites**
+- Node.js (v14 or higher)
+- npm or yarn package manager
+- Git
+
+### **Full Stack Setup**
+
 1. **Clone the repository:**
    ```bash
-   git clone <repo-url>
-   cd pesu-talkies
+   git clone https://github.com/Mayur-Shashidhar/PESU-Talkies-Website.git
+   cd PESU-Talkies-Website
    ```
-2. **Install dependencies:**
+
+2. **Backend Setup:**
    ```bash
+   cd backend
    npm install
-   ```
-3. **Start the development server:**
-   ```bash
+   
+   # Create .env file with email credentials
+   echo "EMAIL_USER=your-email@gmail.com" > .env
+   echo "EMAIL_PASS=your-app-password" >> .env
+   
+   # Start backend server (runs on port 5000)
    npm start
    ```
-   The app will run at [http://localhost:3000](http://localhost:3000)
+
+3. **Frontend Setup:**
+   ```bash
+   cd ../frontend
+   npm install
+   
+   # Start React development server (runs on port 3000)
+   npm start
+   ```
+
+4. **Access the application:**
+   - **Frontend**: [http://localhost:3000](http://localhost:3000)
+   - **Backend API**: [http://localhost:5000](http://localhost:5000)
+
+### **Development Workflow**
+- Backend and frontend run independently
+- Backend serves API endpoints for contact form
+- Frontend makes API calls to backend for email functionality
+- Both servers support hot reloading during development
 
 ---
 
@@ -101,6 +216,69 @@ A modern, fully responsive web application for the PESU Talkies film club, built
 - `/recruitments` — Recruitment info
 - `/announcements` — Announcements
 - `/follow-us` — Social links (with interactive icons)
+
+---
+
+## 🚀 Deployment
+
+### **Current Deployment Status**
+- **Frontend**: Deployed on Vercel at https://pesu-talkies-website.vercel.app/
+- **Backend**: Can be deployed separately to services like Railway, Render, or Heroku
+
+### **Frontend Deployment (Vercel)**
+
+#### **Method 1: Vercel Dashboard**
+1. Fork/clone the repository to your GitHub account
+2. Go to [https://vercel.com](https://vercel.com) and import your repository
+3. Configure build settings:
+   - **Root Directory**: `frontend`
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `build`
+   - **Install Command**: `npm install`
+4. Deploy and get your live URL
+
+#### **Method 2: Vercel CLI**
+```bash
+cd frontend
+npm install -g vercel
+vercel --prod
+```
+
+### **Backend Deployment Options**
+
+#### **Railway Deployment**
+1. Create account at [Railway.app](https://railway.app)
+2. Connect your GitHub repository
+3. Set environment variables in Railway dashboard:
+   ```
+   EMAIL_USER=your-email@gmail.com
+   EMAIL_PASS=your-app-password
+   ```
+4. Deploy from the `backend` directory
+
+#### **Render Deployment**
+1. Create account at [Render.com](https://render.com)
+2. Create new Web Service from your repository
+3. Configure:
+   - **Root Directory**: `backend`
+   - **Build Command**: `npm install`
+   - **Start Command**: `npm start`
+4. Add environment variables in Render dashboard
+
+#### **Heroku Deployment**
+```bash
+cd backend
+heroku create your-app-name
+heroku config:set EMAIL_USER=your-email@gmail.com
+heroku config:set EMAIL_PASS=your-app-password
+git push heroku main
+```
+
+### **Full Stack Deployment Considerations**
+- Update API endpoints in frontend to point to deployed backend URL
+- Ensure CORS is properly configured for production domains
+- Set up proper error logging and monitoring
+- Consider using a process manager like PM2 for backend stability
 
 ---
 
@@ -177,15 +355,100 @@ You can easily deploy this React app to [Vercel](https://vercel.com/) for free. 
 ---
 
 ## 🤝 Contributing
+
+### **Development Guidelines**
 - Pull requests are welcome! Please open an issue first to discuss major changes.
-- For club content updates (films, heads, domains), edit the relevant arrays in the respective component files.
-- All code is commented for maintainability and clarity.
+- Follow the existing code style and structure
+- Test your changes thoroughly on both mobile and desktop
+- Update documentation if you add new features
+
+### **Content Updates**
+For club content updates, edit the relevant data arrays in these files:
+- **Short Films**: Update `shortFilms` array in `frontend/src/Projects.js`
+- **Team Members**: Update `domainHeads` and `clubHeads` arrays in `frontend/src/Heads.js`
+- **Domains**: Update `domains` array in `frontend/src/Domains.js`
+- **Quotes**: Update `quotes` array in `frontend/src/Overview.js`
+
+### **Adding New Features**
+- Follow React best practices and hooks
+- Use AOS for scroll animations
+- Maintain the yellow/black color scheme
+- Ensure mobile responsiveness
+- Add proper error handling
+- Include comments for maintainability
+
+### **Code Structure**
+- All components are well-commented for maintainability
+- CSS follows BEM-like naming conventions
+- Responsive design is mobile-first
+- Environment variables are used for sensitive data
 
 ---
 
-## 📬 Contact
-- For questions, suggestions, or to join PESU Talkies, use the contact form on the Overview page or reach out via the social links on the Follow Us page.
-- Backend contact form is integrated and sends emails to the club and auto-replies to users.
+## 📊 Project Statistics
+
+### **Current Content (July 2025)**
+- **8 Short Films** showcased with individual detail pages
+- **1 Web Series** (MISSED CONNECTIONS IN TAXI)
+- **15+ Team Members** with profile pages and animations
+- **11 Club Domains** with descriptions
+- **3 Major Events** highlighted with posters
+- **4+ Social Media Platforms** integrated
+
+### **Technical Metrics**
+- **Frontend**: 15+ React components
+- **Responsive Design**: Mobile & desktop optimized
+- **Performance**: Optimized images and lazy loading
+- **SEO**: Semantic HTML and meta tags
+- **Accessibility**: ARIA labels and keyboard navigation
+
+---
+
+## 📬 Contact & Support
+
+### **For General Inquiries**
+- **Website Contact Form**: Use the contact form on the Overview page (automated email system)
+- **Official Email**: pesutalkies@pes.edu
+- **Auto-Reply**: All contact form submissions receive automated confirmations
+
+### **Social Media**
+- **Instagram**: [@pesutalkies](https://instagram.com/pesutalkies?igshid=NGExMmI2YTkyZg==)
+- **YouTube**: [@PESU_TALKIES](https://www.youtube.com/@PESU_TALKIES)
+- **LinkedIn**: [PESU Talkies](https://in.linkedin.com/company/pesu-talkies)
+- **X (Twitter)**: Follow us for latest updates
+
+### **Technical Support**
+- **Repository Issues**: Create issues on GitHub for bug reports
+- **Feature Requests**: Use GitHub discussions for new feature ideas
+- **Development Questions**: Contact the development team through the repository
+
+### **Club Membership**
+- Visit the **Recruitments** page for joining information
+- Follow our social media for recruitment announcements
+- Attend club events and workshops for networking opportunities
+
+---
+
+## 🎯 Future Roadmap
+
+### **Planned Features**
+- [ ] Alumni section with success stories
+- [ ] Event calendar integration
+- [ ] Member dashboard with login functionality
+- [ ] Video gallery for film screenings
+- [ ] Blog section for club updates
+- [ ] Advanced search and filtering
+- [ ] Multi-language support
+- [ ] PWA (Progressive Web App) capabilities
+
+### **Technical Improvements**
+- [ ] Backend database integration (MongoDB/PostgreSQL)
+- [ ] Authentication system for admin panel
+- [ ] Image optimization and CDN integration
+- [ ] Advanced analytics and metrics
+- [ ] API rate limiting and security enhancements
+- [ ] Automated testing suite
+- [ ] CI/CD pipeline improvements
 
 ---
 
