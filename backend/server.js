@@ -130,6 +130,7 @@ const chatbotResponses = {
   
   // Events
   'events': 'We organize exciting events like CINIFEST, CINIQUIZZ, and POSTER CHRONICLES! 🎪 Check our Overview page and social media for upcoming events.',
+  'announcements': 'Stay updated with our latest announcements on the Announcements page and follow our social media! 📢 We regularly share updates about recruitment, events, film releases, and club activities on Instagram @pesutalkies, YouTube @PESU_TALKIES, and LinkedIn!',
   'cinifest': 'CINIFEST is one of our major events celebrating cinema and creativity! 🎬 Follow our announcements for details.',
   'ciniquizz': 'CINIQUIZZ is our fun film trivia and quiz event where movie buffs test their cinema knowledge! 🧠 It\'s always an exciting competition with amazing prizes!',
   'poster chronicles': 'POSTER CHRONICLES is our creative event focused on poster design, visual storytelling, and artistic expression! 🎨 Participants showcase their design skills and creativity.',
@@ -207,6 +208,9 @@ function findBestResponse(userMessage) {
   }
   
   // Events (second priority)
+  if (message.includes('announcements') || message.includes('announcement')) {
+    return chatbotResponses['events'];
+  }
   if (message.includes('cinifest')) {
     return chatbotResponses['cinifest'];
   }
@@ -219,7 +223,7 @@ function findBestResponse(userMessage) {
   if (message.includes('events')) {
     return chatbotResponses['events'];
   }
-
+  
   // Specific conversational patterns (third priority)
   if (message.includes('thank') || message.includes('thx') || message.includes(' ty ') || message === 'ty') {
     return chatbotResponses['thanks'];
