@@ -78,6 +78,7 @@ const posterMap = {
   'bhrame': 'Bhrame.jpg',
   'ha': 'Ha.jpg',
   'last-page-preethi': 'Last Page Preethi.jpg',
+  'vam-tv': 'VAM TV.jpg',
   'the-devils-lullaby': "The Devil's Lullaby.jpg",
   'shadows': 'Shadows.jpg',
   'samarpane': 'SAMARPANE.jpg',
@@ -133,7 +134,7 @@ const ShortFilmDetail = () => {
             )}
             <p><strong>Watch:</strong> <a href={film.watchUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#FFD600', textDecoration: 'underline', fontWeight: 'bold' }}>Click here to watch</a></p>
           </div>
-          {slug !== 'vam-tv' && posterMap[slug] && (
+          {posterMap[slug] && (
             <div className="film-poster-screen">
               <div className="film-screen-curtain">
                 <img
@@ -152,7 +153,7 @@ const ShortFilmDetail = () => {
             <p><strong>Release Date:</strong> <span style={{ color: '#FFD600' }}>{film.releaseDate}</span></p>
             <div><strong>Premise:</strong> {formatStory(film.story)}</div>
           </div>
-          {slug !== 'vam-tv' && posterMap[slug] && (
+          {posterMap[slug] && (
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '1.2rem 0' }}>
               <div style={{ border: '3px solid #FFD600', borderRadius: '10px', boxShadow: '0 4px 24px #FFD60055', background: '#222', display: 'inline-block', width: '180px', height: '260px', padding: 0, overflow: 'hidden' }}>
                 <img
