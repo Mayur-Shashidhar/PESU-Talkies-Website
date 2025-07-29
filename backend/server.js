@@ -120,7 +120,7 @@ const chatbotResponses = {
   'how to join': 'To join PESU Talkies: 1) Check our Recruitments page 2) Follow our social media for updates 3) Attend our events 4) Show your passion for filmmaking! 🎪',
   
   // Contact/Social
-  'contact': 'You can reach us through: 📧 Official email: pesutalkies@pes.edu, 📱 Instagram: @pesutalkies, 🎥 YouTube: @PESU_TALKIES, 💼 LinkedIn: PESU Talkies. Or use our contact form!',
+  'contact': 'You can reach us through: 📧 Official email: pesutalkies@pes.edu, 📱 Instagram: @pesutalkies, 🎥 YouTube: @PESU_TALKIES, 💼 LinkedIn: PESU Talkies. Or use our contact form! which is at the end of Overview page',
   'social': 'Follow us on: Instagram (@pesutalkies), YouTube (@PESU_TALKIES), LinkedIn (PESU Talkies), and X! 📱 Stay updated with all our latest content and announcements!',
   'instagram': 'Find us on Instagram @pesutalkies for behind-the-scenes content, event updates, and more! 📸',
   'youtube': 'Subscribe to our YouTube channel @PESU_TALKIES to watch all our short films, series, and exclusive content! 🎥',
