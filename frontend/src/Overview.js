@@ -206,7 +206,7 @@ const Overview = () => {
             <div className="event-placard">
               <img src={process.env.PUBLIC_URL + '/events/CINIFEST.jpg'} alt="CINEFEST" className="event-poster" style={{objectFit:'contain',background:'#111'}} />
               <div className="event-summary">
-                <h3>CINEFEST</h3>
+                <h3>CINIFEST</h3>
                 <p>🎬 PESU Talkies presents Cinifest — a short film competition celebrating creativity and storytelling the PESU way.<br/>✨ Join us for a fun-filled day of short films, games, and cinematic joy.<br/>📷 Showcase your talent and share your stories on the big screen.<br/>🎖 Special guest: National Award-winning filmmaker Mr. ManasoRe.</p>
               </div>
             </div>
