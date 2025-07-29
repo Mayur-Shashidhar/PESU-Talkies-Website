@@ -192,7 +192,7 @@ const Overview = () => {
             <div className="event-placard">
               <img src={process.env.PUBLIC_URL + '/events/CINIQUIZZ.jpg'} alt="CINIQUIZZ" className="event-poster" style={{objectFit:'contain',background:'#111'}} />
               <div className="event-summary">
-                <h3>CINIQUIZZ</h3>
+                <h3>CINIQUIZ</h3>
                 <p>Do you live and breathe cinema? 🎥🎬 Then get ready for a quiz that’ll challenge your movie expertise!</p>
               </div>
             </div>
