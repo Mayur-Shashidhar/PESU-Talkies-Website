@@ -12,6 +12,7 @@ import DomainDetail from './DomainDetail';
 import FollowUs from './FollowUs';
 import Heads from './Heads';
 import Announcements from './Announcements';
+import Chatbot from './Chatbot';
 import './App.css';
 
 // ScrollToTop: Scrolls to the top of the page on route change.
@@ -133,6 +134,9 @@ function App() {
           </div>
           © 2025 PESU Talkies. All rights reserved.
         </footer>
+
+        {/* AI Chatbot - Available on all pages */}
+        <Chatbot />
       </div>
     </Router>
   );

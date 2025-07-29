@@ -24,6 +24,7 @@ This is a **full-stack application** with the following structure:
 
 ## 🚀 Features & Effects (2025 Update)
 - **Mobile & Desktop Responsive:** All pages and features adapt for mobile and laptop screens, including hamburger menu for navigation and fully visible posters.
+- **AI Chatbot Assistant:** Interactive chatbot with unlimited free messages, comprehensive knowledge about PESU Talkies, and natural conversation capabilities.
 - **Landing Page (Overview):** About the club, animated typewriter motto, club logo, and contact form with cycling animated title and emoji. Quotes section titled "From The Vault" with animated cycling quotes.
 - **Heads Page:** Lists all Club Heads and Domain Heads, with detailed, animated profile cards for each (photo, vision, etc.).
 - **Head Detail Animations:** Each head's photo is revealed with a vertical split animation (glass-like effect), and all details are styled for clarity and modernity.
@@ -71,6 +72,8 @@ PESU-Talkies-Website/
 │   │   └── posters/          # Movie/series poster images
 │   └── src/                  # React components and styles
 │       ├── App.js            # Main app with routing & navbar
+│       ├── Chatbot.js        # AI chatbot assistant component
+│       ├── Chatbot.css       # Chatbot styling (black/yellow theme)
 │       ├── Overview.js       # Landing page with animations
 │       ├── Heads.js          # Team members display
 │       ├── Projects.js       # Films and series showcase
@@ -130,6 +133,17 @@ The backend server (`backend/server.js`) provides:
   - Sends email notifications to club administrators (`pesutalkies@pes.edu`)
   - Sends auto-reply confirmation to users
   - Handles email delivery errors gracefully
+
+### **Chatbot API**
+- **Endpoint**: `POST /api/chatbot`
+- **Port**: 5000 (development)
+- **Functionality**:
+  - Processes user messages and returns intelligent responses
+  - Comprehensive knowledge base about PESU Talkies (50+ responses)
+  - Handles project information, domain details, team profiles, recruitment, events
+  - Natural conversation capabilities with casual greetings and responses
+  - Smart matching algorithm with priority-based response selection
+  - Unlimited free messages with no external dependencies
 
 ### **Email Configuration**
 - **Service**: Gmail SMTP
@@ -195,16 +209,78 @@ EMAIL_PASS=your-app-specific-password
 4. **Access the application:**
    - **Frontend**: [http://localhost:3000](http://localhost:3000)
    - **Backend API**: [http://localhost:5000](http://localhost:5000)
+   - **Chatbot**: Available on all frontend pages (bottom-right chat icon)
 
 ### **Development Workflow**
 - Backend and frontend run independently
-- Backend serves API endpoints for contact form
-- Frontend makes API calls to backend for email functionality
+- Backend serves API endpoints for contact form and chatbot
+- Frontend makes API calls to backend for email functionality and chatbot responses
 - Both servers support hot reloading during development
+- Chatbot requires backend server running for full functionality
 
 ---
 
-## 🧭 Main Pages & Routes
+## � AI Chatbot Feature
+
+### **Overview**
+The PESU Talkies website includes a custom-built AI chatbot assistant that provides unlimited free conversations about the club. The chatbot appears as a floating chat button in the bottom-right corner of every page.
+
+### **Chatbot Capabilities**
+- **Comprehensive Knowledge Base**: 50+ intelligent responses covering all aspects of PESU Talkies
+- **Project Information**: Detailed summaries of all 8 short films and web series
+- **Domain Details**: Information about all 11 club domains and their heads
+- **Team Profiles**: Details about club leadership and team members
+- **Recruitment Guidance**: How to join the club and application process
+- **Event Information**: Details about CINIFEST, CINIQUIZZ, POSTER CHRONICLES
+- **Contact Information**: All social media links and contact methods
+- **Natural Conversations**: Handles greetings, casual chat, thanks, goodbyes
+
+### **Technical Implementation**
+- **Frontend**: React component (`Chatbot.js`) with sleek black/yellow UI
+- **Backend**: Express.js API endpoint (`/api/chatbot`) with intelligent response matching
+- **No External Dependencies**: Completely custom solution with no third-party AI services
+- **Unlimited Messages**: No usage limits or API costs
+- **Smart Matching**: Priority-based response algorithm ensuring most relevant answers
+
+### **Chatbot Response Categories**
+1. **Specific Projects**: KID-NAF, BHRAME, HA, LAST PAGE PREETHI, VAM TV, THE DEVIL'S LULLABY, SAMARPANE, SHADOWS, MISSED CONNECTIONS IN TAXI
+2. **Club Information**: About, motto, domains, team structure
+3. **Conversational**: Greetings, identity questions, casual chat, emotions
+4. **Practical**: How to join, contact info, social media, events
+5. **Help & Navigation**: Website guidance and general assistance
+
+### **User Experience Features**
+- **Floating Toggle Button**: Always accessible chat icon with "AI" badge
+- **Professional Interface**: PESU Talkies branding with club logo
+- **Real-time Messaging**: Instant responses with typing indicators
+- **Quick Suggestions**: Predefined buttons for common questions
+- **Message History**: Persistent conversation within session
+- **Mobile Responsive**: Optimized for all screen sizes
+- **Keyboard Shortcuts**: Enter to send, Shift+Enter for line breaks
+
+### **API Integration**
+```javascript
+// Frontend API call example
+const response = await fetch('http://localhost:5000/api/chatbot', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    message: userMessage,
+    userId: 'web-user-' + Date.now()
+  })
+});
+```
+
+### **Response Examples**
+- **"Tell me about KID-NAF"** → Returns thriller synopsis with cast/crew details
+- **"How to join PESU Talkies"** → Provides step-by-step recruitment guidance  
+- **"Who leads the Direction domain"** → Returns "Somesh heads our Direction domain!"
+- **"What events do you organize"** → Lists CINIFEST, CINIQUIZZ, POSTER CHRONICLES
+- **"How are you?"** → Natural conversational response encouraging club exploration
+
+---
+
+## �🧭 Main Pages & Routes
 - `/` — Overview (About, Motto, Domains, Contact)
 - `/heads` — Heads (Club & Domain Heads)
 - `/heads/:slug` — Head detail page (with animated photo reveal)
