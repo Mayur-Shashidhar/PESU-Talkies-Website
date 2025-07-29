@@ -206,7 +206,21 @@ function findBestResponse(userMessage) {
     return chatbotResponses['missed connections in taxi'];
   }
   
-  // Specific conversational patterns (second priority)
+  // Events (second priority)
+  if (message.includes('cinifest')) {
+    return chatbotResponses['cinifest'];
+  }
+  if (message.includes('ciniquizz') || message.includes('cini quiz')) {
+    return chatbotResponses['ciniquizz'];
+  }
+  if (message.includes('poster chronicles')) {
+    return chatbotResponses['poster chronicles'];
+  }
+  if (message.includes('events')) {
+    return chatbotResponses['events'];
+  }
+
+  // Specific conversational patterns (third priority)
   if (message.includes('thank') || message.includes('thx') || message.includes(' ty ') || message === 'ty') {
     return chatbotResponses['thanks'];
   }
