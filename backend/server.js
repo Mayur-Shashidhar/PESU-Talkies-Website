@@ -86,7 +86,7 @@ const chatbotResponses = {
   'bhrame': 'BHRAME is a psychological drama exploring the complexity of human emotions and relationships! 🧠 It delves into the confusion and dilemmas we face in our daily lives, presenting a thought-provoking narrative.',
   'ha': 'HA is about two siblings Ajay and Divya caught in a haunting time loop where each reset comes at a devastating cost. As they struggle to escape, they uncover a chilling truth: time isn’t just repeating — it holds onto their every choice.',
   'last page preethi': 'LAST PAGE PREETHI is a romantic drama about love, loss, and second chances! 💝 It tells the touching story of relationships that transcend time and the beauty of unexpected connections.',
-  'vam tv': 'An exclusive Halloween special from the makers of 'The Devil's Lullaby'. Trick or Treat!',
+  'vam tv': 'An exclusive Halloween special',
   'the devils lullaby': 'THE DEVIL\'S LULLABY is a dark thriller that explores the supernatural and psychological horror! 👹 It combines eerie atmospheres with compelling storytelling to create a haunting cinematic experience.',
   'devils lullaby': 'THE DEVIL\'S LULLABY is a dark thriller that explores the supernatural and psychological horror! 👹 It combines eerie atmospheres with compelling storytelling to create a haunting cinematic experience.',
   'samarpane': 'SAMARPANE is a heartfelt drama about sacrifice, dedication, and the pursuit of dreams! 🌟 It showcases the journey of individuals who give their all for something greater than themselves.',
