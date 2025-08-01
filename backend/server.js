@@ -307,7 +307,7 @@ function findBestResponse(userMessage) {
   }
   
   // About the club & General help (sixth priority)
-  if (message.includes('about') || message.includes('club')) {
+  if (message.includes('about')) {
     return chatbotResponses['about'];
   }
   if (message.includes('motto')) {
