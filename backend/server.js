@@ -229,7 +229,7 @@ function findBestResponse(userMessage) {
   if (message.includes('domains') || message.includes('domain')) {
     return chatbotResponses['domains'];
   }
-  if (message.includes('direction') && !message.includes('director')) {
+  if (message.includes('direction')) {
     return chatbotResponses['direction'];
   }
   if (message.includes('cinematography')) {
