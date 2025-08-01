@@ -175,7 +175,7 @@ const chatbotResponses = {
 };
 
 // Function to find the best matching response
-// Priority hierarchy: 1) Projects 2) Events 3) Domains 4) Heads/Team 5) Recruitment/Contact 6) Conversational
+// Priority hierarchy: 1) Projects 2) Events 3) Domains 4) Heads/Team 5) Recruitment/Contact 6) About/Help 7) Conversational
 function findBestResponse(userMessage) {
   const message = userMessage.toLowerCase().trim();
   
@@ -306,14 +306,40 @@ function findBestResponse(userMessage) {
     return chatbotResponses['email'];
   }
   
-  // Conversational patterns (sixth priority)
+  // About the club & General help (sixth priority)
+  if (message.includes('about') || message.includes('club')) {
+    return chatbotResponses['about'];
+  }
+  if (message.includes('motto')) {
+    return chatbotResponses['motto'];
+  }
+  if (message.includes('help')) {
+    return chatbotResponses['help'];
+  }
+  if (message.includes('navigation') || message.includes('website') || message.includes('pages')) {
+    return chatbotResponses['navigation'];
+  }
+  if (message.includes('projects') && !message.includes('kid-naf') && !message.includes('bhrame') && !message.includes('shadows')) {
+    return chatbotResponses['projects'];
+  }
+  if (message.includes('films') && !message.includes('specific')) {
+    return chatbotResponses['films'];
+  }
+  if (message.includes('series') && !message.includes('missed connections') && !message.includes('taxi')) {
+    return chatbotResponses['series'];
+  }
+  
+  // Conversational patterns (seventh priority)
   if (message.includes('thank') || message.includes('thx') || message.includes(' ty ') || message === 'ty') {
     return chatbotResponses['thanks'];
   }
   if (message.includes('bye') || message.includes('goodbye') || message.includes('see you') || message.includes('cya') || message.includes('gtg')) {
     return chatbotResponses['bye'];
   }
-  if (message.includes('what') && (message.includes('do') || message.includes('can'))) {
+  if (message.includes('what can you do') || message.includes('what do you know')) {
+    return chatbotResponses['what can you do'];
+  }
+  if (message.includes('what') && (message.includes('do') || message.includes('can')) && !message.includes('what can you do')) {
     return chatbotResponses['help'];
   }
   if (message.includes('how are you') || message.includes('how r u') || message.includes('how are u')) {
@@ -345,9 +371,6 @@ function findBestResponse(userMessage) {
   }
   if (message.includes('tell me more') || message.includes('more info')) {
     return chatbotResponses['tell me more'];
-  }
-  if (message.includes('what can you do') || message.includes('what do you know')) {
-    return chatbotResponses['what can you do'];
   }
   if (message === 'lol' || message === 'haha' || message.includes('funny')) {
     return chatbotResponses['lol'];
