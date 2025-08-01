@@ -354,7 +354,7 @@ function findBestResponse(userMessage) {
   if (message.includes('who are you') || message.includes('who r u') || message.includes('what are you')) {
     return chatbotResponses['who are you'];
   }
-  if (message.includes('are you human') || message.includes('are u human') || message.includes('r u human') || message.includes('are you real')) {
+  if (message.includes('are you human') || message.includes('are u human') || message.includes('r u human') || message.includes('are you real') || message.includes('are u real')) {
     return chatbotResponses['are you human'];
   }
   if (message.includes('good morning')) {
