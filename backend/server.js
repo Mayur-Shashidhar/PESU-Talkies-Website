@@ -81,19 +81,15 @@ const chatbotResponses = {
   'series': 'Our series "MISSED CONNECTIONS IN TAXI" explores modern urban relationships and chance encounters. It\'s available with full cast and crew details!',
   
   // Individual Project Summaries
-  'kid-naf': 'KID-NAF is a gripping thriller about a kidnapping gone wrong! 🎭 The story follows unexpected twists as plans unravel, showcasing intense performances and edge-of-your-seat suspense.',
-  'kidnaf': 'KID-NAF is a gripping thriller about a kidnapping gone wrong! 🎭 The story follows unexpected twists as plans unravel, showcasing intense performances and edge-of-your-seat suspense.',
-  'bhrame': 'BHRAME is a psychological drama exploring the complexity of human emotions and relationships! 🧠 It delves into the confusion and dilemmas we face in our daily lives, presenting a thought-provoking narrative.',
+  'kid-naf': 'KID-NAF is a comedy film where three friends find themselves on the run from the police after a wild party night. The cops are searching for their missing fourth friend, Basava, who mysteriously disappeared. In a hilarious twist, the trio tricks the police and escapes—unaware Basava is actually hiding in the nearby van all along',
+  'bhrame': 'BHRAME is a psychological drama where Meghna suspects her husband Bharat is hiding a dark secret, sparking a relentless quest for the truth. As her obsession deepens, she begins to unravel mentally and emotionally. Her pursuit threatens to destroy her marriage and shatter her sense of reality.',
   'ha': 'HA is about two siblings Ajay and Divya caught in a haunting time loop where each reset comes at a devastating cost. As they struggle to escape, they uncover a chilling truth: time isn’t just repeating — it holds onto their every choice.',
-  'last page preethi': 'LAST PAGE PREETHI is a romantic drama about love, loss, and second chances! 💝 It tells the touching story of relationships that transcend time and the beauty of unexpected connections.',
-  'vam tv': 'An exclusive Halloween special',
-  'the devils lullaby': 'THE DEVIL\'S LULLABY is a dark thriller that explores the supernatural and psychological horror! 👹 It combines eerie atmospheres with compelling storytelling to create a haunting cinematic experience.',
-  'devils lullaby': 'THE DEVIL\'S LULLABY is a dark thriller that explores the supernatural and psychological horror! 👹 It combines eerie atmospheres with compelling storytelling to create a haunting cinematic experience.',
-  'samarpane': 'SAMARPANE is a heartfelt drama about sacrifice, dedication, and the pursuit of dreams! 🌟 It showcases the journey of individuals who give their all for something greater than themselves.',
-  'shadows': 'SHADOWS is an intense thriller that plays with light and darkness, both literally and metaphorically! 🌑 The film explores hidden truths, secrets, and the duality of human nature.',
-  'missed connections in taxi': 'MISSED CONNECTIONS IN TAXI is our web series exploring chance encounters in urban life! 🚕 Each episode follows different passengers sharing a taxi ride, revealing intimate stories of missed opportunities, unexpected connections, and the beautiful randomness of city life.',
-  'missed connections': 'MISSED CONNECTIONS IN TAXI is our web series exploring chance encounters in urban life! 🚕 Each episode follows different passengers sharing a taxi ride, revealing intimate stories of missed opportunities, unexpected connections, and the beautiful randomness of city life.',
-  'taxi series': 'MISSED CONNECTIONS IN TAXI is our web series exploring chance encounters in urban life! 🚕 Each episode follows different passengers sharing a taxi ride, revealing intimate stories of missed opportunities, unexpected connections, and the beautiful randomness of city life.',
+  'last page preethi': 'LAST PAGE PREETHI is a romantic drama about where in a world shaped by words, extroverted Yogith meets introverted Swathi, sparking a silent yet powerful connection. Their love blossoms without a single spoken word, built on glances and shared moments. Together, they prove that true love can speak volumes in silence..',
+  'vam tv': 'VAM TV is an exclusive Halloween special',
+  'the devils lullaby': 'THE DEVIL\'S LULLABY is a dark thriller that follows two brothers torn apart by fate, only to be reunited under intense circumstances. The story pits evil against evil, unraveling a dark and complex journey. A gripping visual spectacle, it explores their clash and the twisted forces that bind them.',
+  'samarpane': 'SAMARPANE is a patriotic short film about when the country calls for its heroes, Bharat, a dedicated soldier, faces a battle of duty and sacrifice. His sister Thrisha and girlfriend Indira are each thrown into their own struggles, torn between love and loyalty. Together, they must confront their fates, fighting for both their country and each other.
+  'shadows': 'SHADOWS is a psychological horror short film where Aprameya returns home to find his once-safe space now filled with eerie disturbances. He senses a dark presence, with strange movements and haunting whispers lurking in the shadows. As the terror escalates, Aprameya must confront the unsettling forces within his own home.',
+  'missed connections in taxi': 'MISSED CONNECTIONS IN TAXI is a reel series where in a city of chaos and cabs, two strangers reach for the same ride — and miss it. But sometimes, a missed cab can lead to a story worth catching.',
   
   // Domains
   'domains': 'We have 11 exciting domains: Direction, Cinematography, Acting, Editing, Production, Marketing, Content, Design, Operations, Cultural, and Social Media! 🎯 Each domain offers unique learning opportunities.',
@@ -186,7 +182,7 @@ function findBestResponse(userMessage) {
   if (message.includes('bhrame')) {
     return chatbotResponses['bhrame'];
   }
-  if (message === 'ha' || message.includes('ha film') || message.includes('ha movie')) {
+  if (message === 'ha' || message.includes('ha film') || message.includes('ha movie') || message.includes('about ha') || message.includes('tell me about ha')) {
     return chatbotResponses['ha'];
   }
   if (message.includes('last page preethi') || message.includes('preethi')) {
@@ -204,7 +200,7 @@ function findBestResponse(userMessage) {
   if (message.includes('shadows') && !message.includes('missed')) {
     return chatbotResponses['shadows'];
   }
-  if (message.includes('missed connections') || message.includes('taxi series')) {
+  if (message.includes('missed connections') || message.includes('taxi series') || message.includes('missed connections in taxi') {
     return chatbotResponses['missed connections in taxi'];
   }
   
