@@ -1,5 +1,5 @@
 // Express server for PESU Talkies contact form backend.
-const express = require("exp  'ha': 'Siblings Ajay and Divya are trapped in a time loop, reliving moments with a cost. Each reset demands a painful trade, pushing them to the edge. They soon realize time itself holds memories — and consequences.',ess");
+const express = require("express");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 require("dotenv").config();
@@ -81,19 +81,19 @@ const chatbotResponses = {
   'series': 'Our series "MISSED CONNECTIONS IN TAXI" explores modern urban relationships and chance encounters. It\'s available with full cast and crew details!',
   
   // Individual Project Summaries
-  'kid-naf': 'Three friends find themselves on the run from the police after a wild night of partying. The cops are searching for their missing friend Basava. Unbeknownst to everyone, Basava is actually hidden in the van right next to them.',
-  'kidnaf': 'Three friends find themselves on the run from the police after a wild night of partying. The cops are searching for their missing friend Basava. Unbeknownst to everyone, Basava is actually hidden in the van right next to them.',
-  'bhrame': 'Meghna starts doubting her husband\'s true identity, suspecting a dark secret. Her quest for truth spirals into paranoia, blurring the line between reality and illusion. As she loses control, the world around her collapses.',
+  'kid-naf': 'KID-NAF is a gripping thriller about a kidnapping gone wrong! 🎭 The story follows unexpected twists as plans unravel, showcasing intense performances and edge-of-your-seat suspense.',
+  'kidnaf': 'KID-NAF is a gripping thriller about a kidnapping gone wrong! 🎭 The story follows unexpected twists as plans unravel, showcasing intense performances and edge-of-your-seat suspense.',
+  'bhrame': 'BHRAME is a psychological drama exploring the complexity of human emotions and relationships! 🧠 It delves into the confusion and dilemmas we face in our daily lives, presenting a thought-provoking narrative.',
   'ha': 'HA is about two siblings Ajay and Divya caught in a haunting time loop where each reset comes at a devastating cost. As they struggle to escape, they uncover a chilling truth: time isn’t just repeating — it holds onto their every choice.',
-  'last page preethi': 'Yogith, outgoing and cheerful, meets Swathi, an introverted girl, in a world built on silence. Their love blossoms without words — through shared looks and quiet moments. It\'s a story where emotions speak louder than voices.',
+  'last page preethi': 'LAST PAGE PREETHI is a romantic drama about love, loss, and second chances! 💝 It tells the touching story of relationships that transcend time and the beauty of unexpected connections.',
   'vam tv': 'An exclusive Halloween special',
-  'the devils lullaby': 'Two estranged brothers are pulled back together by fate in a twisted tale of revenge and darkness. As evil faces off against evil, their past resurfaces violently. The story unfolds in a chilling, surreal spectacle.',
-  'devils lullaby': 'Two estranged brothers are pulled back together by fate in a twisted tale of revenge and darkness. As evil faces off against evil, their past resurfaces violently. The story unfolds in a chilling, surreal spectacle.',
-  'samarpane': 'Bharat, a soldier, his sister Thrisha, and his partner Indira each face life-altering choices in times of war. Bound by love and duty, they are forced into paths of painful sacrifice. Their lives intertwine in a tale of patriotism and heartbreak.',
-  'shadows': 'Aprameya returns to his house only to sense an eerie, unnatural presence lurking. Strange sounds, movements, and shadows follow him in a haunting atmosphere. The horror builds as he confronts what\'s hiding in the dark.',
-  'missed connections in taxi': 'In a city of chaos and cabs, two strangers reach for the same ride — and miss it. But sometimes, a missed cab can lead to a story worth catching.',
-  'missed connections': 'In a city of chaos and cabs, two strangers reach for the same ride — and miss it. But sometimes, a missed cab can lead to a story worth catching.',
-  'taxi series': 'In a city of chaos and cabs, two strangers reach for the same ride — and miss it. But sometimes, a missed cab can lead to a story worth catching.',
+  'the devils lullaby': 'THE DEVIL\'S LULLABY is a dark thriller that explores the supernatural and psychological horror! 👹 It combines eerie atmospheres with compelling storytelling to create a haunting cinematic experience.',
+  'devils lullaby': 'THE DEVIL\'S LULLABY is a dark thriller that explores the supernatural and psychological horror! 👹 It combines eerie atmospheres with compelling storytelling to create a haunting cinematic experience.',
+  'samarpane': 'SAMARPANE is a heartfelt drama about sacrifice, dedication, and the pursuit of dreams! 🌟 It showcases the journey of individuals who give their all for something greater than themselves.',
+  'shadows': 'SHADOWS is an intense thriller that plays with light and darkness, both literally and metaphorically! 🌑 The film explores hidden truths, secrets, and the duality of human nature.',
+  'missed connections in taxi': 'MISSED CONNECTIONS IN TAXI is our web series exploring chance encounters in urban life! 🚕 Each episode follows different passengers sharing a taxi ride, revealing intimate stories of missed opportunities, unexpected connections, and the beautiful randomness of city life.',
+  'missed connections': 'MISSED CONNECTIONS IN TAXI is our web series exploring chance encounters in urban life! 🚕 Each episode follows different passengers sharing a taxi ride, revealing intimate stories of missed opportunities, unexpected connections, and the beautiful randomness of city life.',
+  'taxi series': 'MISSED CONNECTIONS IN TAXI is our web series exploring chance encounters in urban life! 🚕 Each episode follows different passengers sharing a taxi ride, revealing intimate stories of missed opportunities, unexpected connections, and the beautiful randomness of city life.',
   
   // Domains
   'domains': 'We have 11 exciting domains: Direction, Cinematography, Acting, Editing, Production, Marketing, Content, Design, Operations, Cultural, and Social Media! 🎯 Each domain offers unique learning opportunities.',
