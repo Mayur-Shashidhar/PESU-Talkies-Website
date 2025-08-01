@@ -175,6 +175,7 @@ const chatbotResponses = {
 };
 
 // Function to find the best matching response
+// Priority hierarchy: 1) Projects 2) Events 3) Domains 4) Heads/Team 5) Recruitment/Contact 6) Conversational
 function findBestResponse(userMessage) {
   const message = userMessage.toLowerCase().trim();
   
@@ -224,7 +225,88 @@ function findBestResponse(userMessage) {
     return chatbotResponses['events'];
   }
   
-  // Specific conversational patterns (third priority)
+  // Domains (third priority)
+  if (message.includes('domains') || message.includes('domain')) {
+    return chatbotResponses['domains'];
+  }
+  if (message.includes('direction') && !message.includes('director')) {
+    return chatbotResponses['direction'];
+  }
+  if (message.includes('cinematography')) {
+    return chatbotResponses['cinematography'];
+  }
+  if (message.includes('acting')) {
+    return chatbotResponses['acting'];
+  }
+  if (message.includes('editing')) {
+    return chatbotResponses['editing'];
+  }
+  if (message.includes('production')) {
+    return chatbotResponses['production'];
+  }
+  if (message.includes('marketing')) {
+    return chatbotResponses['marketing'];
+  }
+  if (message.includes('content')) {
+    return chatbotResponses['content'];
+  }
+  if (message.includes('design')) {
+    return chatbotResponses['design'];
+  }
+  if (message.includes('operations')) {
+    return chatbotResponses['operations'];
+  }
+  if (message.includes('cultural')) {
+    return chatbotResponses['cultural'];
+  }
+  if (message.includes('social media')) {
+    return chatbotResponses['social media'];
+  }
+  
+  // Heads/Team (fourth priority)
+  if (message.includes('heads') || message.includes('head')) {
+    return chatbotResponses['heads'];
+  }
+  if (message.includes('team')) {
+    return chatbotResponses['team'];
+  }
+  if (message.includes('leadership')) {
+    return chatbotResponses['leadership'];
+  }
+  
+  // Recruitment/Contact (fifth priority)
+  if (message.includes('join') || message.includes('recruitment') || message.includes('how to join')) {
+    if (message.includes('how to join')) {
+      return chatbotResponses['how to join'];
+    }
+    if (message.includes('recruitment')) {
+      return chatbotResponses['recruitment'];
+    }
+    return chatbotResponses['join'];
+  }
+  if (message.includes('contact')) {
+    return chatbotResponses['contact'];
+  }
+  if (message.includes('social')) {
+    return chatbotResponses['social'];
+  }
+  if (message.includes('instagram')) {
+    return chatbotResponses['instagram'];
+  }
+  if (message.includes('youtube')) {
+    return chatbotResponses['youtube'];
+  }
+  if (message.includes('linkedin')) {
+    return chatbotResponses['linkedin'];
+  }
+  if (message.includes('twitter')) {
+    return chatbotResponses['twitter'];
+  }
+  if (message.includes('email')) {
+    return chatbotResponses['email'];
+  }
+  
+  // Conversational patterns (sixth priority)
   if (message.includes('thank') || message.includes('thx') || message.includes(' ty ') || message === 'ty') {
     return chatbotResponses['thanks'];
   }
