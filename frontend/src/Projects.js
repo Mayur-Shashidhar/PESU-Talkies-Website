@@ -44,7 +44,7 @@ const Projects = () => {
     series.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const FILMS_PER_PAGE = 6;
+  const FILMS_PER_PAGE = 5;
   const totalPages = Math.ceil(filteredShortFilms.length / FILMS_PER_PAGE);
   const paginatedShortFilms = filteredShortFilms.slice((page - 1) * FILMS_PER_PAGE, page * FILMS_PER_PAGE);
 
