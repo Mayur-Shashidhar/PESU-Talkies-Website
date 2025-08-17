@@ -170,14 +170,41 @@ const Overview = () => {
     setForm({ name: '', email: '', message: '' });
   };
 
+  // Render 30 particles with random positions and sizes
+  const particles = useMemo(() => {
+    return Array.from({ length: 30 }).map((_, i) => {
+      const left = Math.random() * 100;
+      const top = Math.random() * 100;
+      const size = 6 + Math.random() * 10;
+      const delay = Math.random() * 8;
+      return (
+        <div
+          key={i}
+          className="particle"
+          style={{
+            left: `${left}vw`,
+            top: `${top}vh`,
+            width: `${size}px`,
+            height: `${size}px`,
+            animationDelay: `${delay}s`,
+          }}
+        />
+      );
+    });
+  }, []);
+
   return (
-    <div className="about-container">
-      <img src={process.env.PUBLIC_URL + '/pesu-talkies-logo.png'} alt="PESU Talkies Logo" className="about-logo" data-aos="zoom-in" />
-      <h1 data-aos="fade-up">PESU Talkies</h1>
-      <TypewriterMotto />
-      <p className="about-description" data-aos="fade-up" data-aos-delay="200">
-        The PESU Talkies film club is a community for film enthusiasts who share a passion for storytelling through cinema. We offer a platform for members to showcase their creativity and hone their skills through workshops, screenings, and interactive events. With a focus on promoting diversity and inclusivity in filmmaking, our club welcomes anyone with an interest in cinema, regardless of their background or experience.
-      </p>
+    <>
+      <div className="overview-particles-bg">
+        {particles}
+      </div>
+      <div className="about-container">
+        <img src={process.env.PUBLIC_URL + '/pesu-talkies-logo.png'} alt="PESU Talkies Logo" className="about-logo" data-aos="zoom-in" />
+        <h1 data-aos="fade-up">PESU Talkies</h1>
+        <TypewriterMotto />
+        <p className="about-description" data-aos="fade-up" data-aos-delay="200">
+          The PESU Talkies film club is a community for film enthusiasts who share a passion for storytelling through cinema. We offer a platform for members to showcase their creativity and hone their skills through workshops, screenings, and interactive events. With a focus on promoting diversity and inclusivity in filmmaking, our club welcomes anyone with an interest in cinema, regardless of their background or experience.
+        </p>
       <div className="quotes-section" data-aos="fade-up" data-aos-delay="350">
         <h2 className="quotes-heading" style={{color:'#FFD600',marginBottom:'1.2rem',fontWeight:700,letterSpacing:'1px'}}>From The Vault</h2>
         <AnimatedQuote />
@@ -241,6 +268,7 @@ const Overview = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 
