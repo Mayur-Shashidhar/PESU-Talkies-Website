@@ -1,3 +1,31 @@
+/* Bounce animation for pagination page number */
+.pagination-controls .page-number-animate {
+  display: inline-block;
+  animation: bouncePageNum 0.4s;
+}
+
+@keyframes bouncePageNum {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.3); }
+  60% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+/* Fade animation for pagination in Projects page */
+.films-list.fade-in {
+  animation: fadeInList 0.35s;
+}
+.films-list.fade-out {
+  animation: fadeOutList 0.35s;
+}
+
+@keyframes fadeInList {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeOutList {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-20px); }
+}
 body {
   background: #111;
   color: #fff;
