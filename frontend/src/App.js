@@ -132,6 +132,7 @@ function App() {
               BACK TO TOP
             </button>
           </div>
+          <div className="neon-footer-line" />
           © 2025 PESU Talkies. All rights reserved.
         </footer>
 
