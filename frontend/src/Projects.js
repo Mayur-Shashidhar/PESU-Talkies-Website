@@ -24,8 +24,8 @@ const seriesList = [
 const Projects = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [page, setPage] = useState(1);
-  const [fade, setFade] = useState('fade-in');
   const [pageAnim, setPageAnim] = useState(false);
+  const [slide, setSlide] = useState('slide-in-right');
 
   useEffect(() => {
     AOS.init({ duration: 900, once: false });
@@ -50,10 +50,10 @@ const Projects = () => {
 
   const handlePrevPage = () => {
     if (page > 1) {
-      setFade('fade-out');
+      setSlide('slide-out-right');
       setTimeout(() => {
         setPage((prev) => prev - 1);
-        setFade('fade-in');
+        setSlide('slide-in-left');
         setPageAnim(true);
         setTimeout(() => setPageAnim(false), 400);
       }, 350);
@@ -61,10 +61,10 @@ const Projects = () => {
   };
   const handleNextPage = () => {
     if (page < totalPages) {
-      setFade('fade-out');
+      setSlide('slide-out-left');
       setTimeout(() => {
         setPage((prev) => prev + 1);
-        setFade('fade-in');
+        setSlide('slide-in-right');
         setPageAnim(true);
         setTimeout(() => setPageAnim(false), 400);
       }, 350);
@@ -72,6 +72,7 @@ const Projects = () => {
   };
   useEffect(() => {
     setPage(1); // Reset to first page on search
+    setSlide('slide-in-right');
   }, [searchTerm]);
 
   return (
@@ -102,7 +103,7 @@ const Projects = () => {
       
       <div className="films-section" data-aos={searchTerm ? "" : "fade-up"}>
         <h3>Short Films</h3>
-        <ul className={`films-list ${fade}`}>
+        <ul className={`films-list ${slide}`}>
           {paginatedShortFilms.map(film => (
             <li key={film.slug}>
               <Link className="film-link" to={`/projects/short-films/${film.slug}`}>{film.name}</Link>
