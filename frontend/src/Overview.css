@@ -1,3 +1,15 @@
+.contact-section h3 {
+  color: #FFD600;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  transition: text-shadow 0.2s, filter 0.2s;
+}
+.contact-title-neon {
+  text-shadow: 0 0 8px #FFD60099, 0 0 24px #FFD60044;
+  filter: drop-shadow(0 0 6px #FFD600);
+}
 /* Particle effect background */
 .overview-particles-bg {
   position: fixed;
