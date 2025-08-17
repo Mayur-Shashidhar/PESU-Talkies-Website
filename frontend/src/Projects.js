@@ -23,6 +23,9 @@ const seriesList = [
 // Projects: Displays all short films and series with search and navigation functionality.
 const Projects = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [page, setPage] = useState(1);
+  const [fade, setFade] = useState('fade-in');
+  const [pageAnim, setPageAnim] = useState(false);
 
   useEffect(() => {
     AOS.init({ duration: 900, once: false });
@@ -40,6 +43,36 @@ const Projects = () => {
   const filteredSeries = seriesList.filter(series =>
     series.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const FILMS_PER_PAGE = 6;
+  const totalPages = Math.ceil(filteredShortFilms.length / FILMS_PER_PAGE);
+  const paginatedShortFilms = filteredShortFilms.slice((page - 1) * FILMS_PER_PAGE, page * FILMS_PER_PAGE);
+
+  const handlePrevPage = () => {
+    if (page > 1) {
+      setFade('fade-out');
+      setTimeout(() => {
+        setPage((prev) => prev - 1);
+        setFade('fade-in');
+        setPageAnim(true);
+        setTimeout(() => setPageAnim(false), 400);
+      }, 350);
+    }
+  };
+  const handleNextPage = () => {
+    if (page < totalPages) {
+      setFade('fade-out');
+      setTimeout(() => {
+        setPage((prev) => prev + 1);
+        setFade('fade-in');
+        setPageAnim(true);
+        setTimeout(() => setPageAnim(false), 400);
+      }, 350);
+    }
+  };
+  useEffect(() => {
+    setPage(1); // Reset to first page on search
+  }, [searchTerm]);
 
   return (
     <div className="page-container">
@@ -69,8 +102,8 @@ const Projects = () => {
       
       <div className="films-section" data-aos={searchTerm ? "" : "fade-up"}>
         <h3>Short Films</h3>
-        <ul className="films-list">
-          {filteredShortFilms.map(film => (
+        <ul className={`films-list ${fade}`}>
+          {paginatedShortFilms.map(film => (
             <li key={film.slug}>
               <Link className="film-link" to={`/projects/short-films/${film.slug}`}>{film.name}</Link>
             </li>
@@ -78,6 +111,15 @@ const Projects = () => {
         </ul>
         {filteredShortFilms.length === 0 && searchTerm && (
           <p style={{ color: '#888', fontStyle: 'italic' }}>No short films found matching "{searchTerm}"</p>
+        )}
+        {filteredShortFilms.length > FILMS_PER_PAGE && (
+          <div className="pagination-controls" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1.2rem', marginTop: '1.5rem' }}>
+            <button onClick={handlePrevPage} disabled={page === 1} style={{ fontSize: '1.3rem', background: 'none', border: 'none', color: '#FFD600', cursor: page === 1 ? 'not-allowed' : 'pointer' }}>&lt;</button>
+            <span style={{ color: '#FFD600', fontWeight: 600 }}>
+              Page <span className={pageAnim ? 'page-number-animate' : ''}>{page}</span> of {totalPages}
+            </span>
+            <button onClick={handleNextPage} disabled={page === totalPages} style={{ fontSize: '1.3rem', background: 'none', border: 'none', color: '#FFD600', cursor: page === totalPages ? 'not-allowed' : 'pointer' }}>&gt;</button>
+          </div>
         )}
       </div>
       
