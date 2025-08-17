@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-// domainNames: Maps domain slugs to display names.
 const domainNames = {
   marketing: 'MARKETING',
   acting: 'ACTING',
@@ -16,7 +17,6 @@ const domainNames = {
   cultural: 'CULTURAL',
 };
 
-// domainDescriptions: Maps domain slugs to their descriptions.
 const domainDescriptions = {
   marketing: "Spreading the word and building excitement, this team crafts creative strategies to promote club events, films and activities, ensuring PESU Talkies is always in the spotlight.",
   acting: "Bringing characters and stories to life, members of this domain develop their performance skills and take center stage in all club productions.",
@@ -31,12 +31,18 @@ const domainDescriptions = {
   cultural: "Celebrating diversity and inclusivity, this team organizes events and projects that reflect a wide range of stories, backgrounds and traditions.",
 };
 
-// DomainDetail: Displays details for a selected domain, including name and description.
 const DomainDetail = () => {
   const { slug } = useParams();
-  const name = domainNames[slug];
+  const normalizedSlug = slug?.toLowerCase();
+  const name = domainNames[normalizedSlug];
+  const description = domainDescriptions[normalizedSlug];
 
-  if (!name) {
+  useEffect(() => {
+    AOS.init({ duration: 900, once: false });
+    AOS.refresh();
+  }, []);
+
+  if (!name || !description) {
     return (
       <div className="page-container">
         <Link to="/domains" style={{ color: '#FFD600', textDecoration: 'none', fontWeight: 'bold' }}>&larr; Back to Domains</Link>
@@ -50,7 +56,7 @@ const DomainDetail = () => {
       <Link to="/domains" style={{ color: '#FFD600', textDecoration: 'none', fontWeight: 'bold' }} data-aos="fade-down">&larr; Back to Domains</Link>
       <h2 style={{ color: '#FFD600', marginTop: '1.5rem' }} data-aos="fade-down">{name}</h2>
       <div style={{ marginTop: '1.5rem', background: '#181818', borderRadius: 16, padding: '1.5rem 1.2rem', color: '#fff' }} data-aos="fade-up">
-        <p>{domainDescriptions[slug]}</p>
+        <p>{description}</p>
       </div>
     </div>
   );
