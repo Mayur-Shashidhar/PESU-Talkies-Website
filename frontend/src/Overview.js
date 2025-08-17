@@ -243,7 +243,7 @@ const Overview = () => {
       </div>
 
       <div className="contact-section" data-aos="fade-up" data-aos-delay="500">
-        <h3>{contactEmojis[contactTitleIdx]} {contactTitles[contactTitleIdx]}</h3>
+  <h3>{contactEmojis[contactTitleIdx]} <span className="contact-title-neon">{contactTitles[contactTitleIdx]}</span></h3>
         <p className="contact-message">
           <span role="img" aria-label="envelope">✉️</span> Have questions, suggestions, or want to join PESU Talkies? Fill out the form below and we’ll get back to you soon!<br/>
           You can also contact us directly at <a href="mailto:pesutalkies@pes.edu" style={{ color: '#FFD600', textDecoration: 'underline', fontWeight: 500 }}>pesutalkies@pes.edu</a>.
