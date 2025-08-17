@@ -456,6 +456,33 @@ body {
 }
 
 /* Back to Top button styling, matches .contact-submit */
+
+
+.neon-footer-line {
+  width: 90%;
+  height: 2px;
+  margin: 18px auto;
+  background: linear-gradient(90deg, #FFD600 0%, #fff700 100%);
+  border-radius: 2px;
+  box-shadow: 0 0 16px 2px #FFD600, 0 0 32px 4px #fff700;
+  animation: neon-pulse 1.2s infinite;
+  display: block;
+}
+
+@keyframes neon-pulse {
+  0% {
+    opacity: 1;
+    box-shadow: 0 0 16px 2px #FFD600, 0 0 32px 4px #fff700;
+  }
+  50% {
+    opacity: 0.5;
+    box-shadow: 0 0 8px 1px #FFD600, 0 0 16px 2px #fff700;
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 16px 2px #FFD600, 0 0 32px 4px #fff700;
+  }
+}
 .back-to-top-btn {
   background: #111;
   color: #FFD600;
