@@ -371,6 +371,18 @@ git push heroku main
 - **Hamburger Menu:** On mobile, nav links are hidden behind a hamburger icon next to the PES University logo.
 - **All code is commented for maintainability.**
 
+## 🆕 2025 UI/UX & Feature Updates
+
+- **Neon Yellow Footer Line:** Added a pulsing neon yellow line above the footer on every page for a modern, film-inspired look.
+- **Animated Particle Background:** Overview page features floating, glowing particles for a cinematic effect.
+- **Quotes & Contact Section:** Removed background boxes for a cleaner look; contact section title has a neon effect (emoji excluded).
+- **Pagination for Short Films:** Projects page now has dynamic, futuristic pagination with arrows, page numbers, and smooth slide/fade animations. Number of titles per page is configurable.
+- **Glassmorphism & Futuristic UI:** Navbar and controls use glassy, modern effects; pagination controls are compact and visually enhanced.
+- **AOS Animations:** All scroll animations reinitialized for reliability after reloads.
+- **Domain Detail Routing Fix:** Domain detail pages now reliably show content after reload, with slug normalization and AOS animation.
+- **Code Quality:** Unused variables removed, ESLint warnings addressed.
+- **Responsive Design:** All new features are fully mobile-friendly and tested on multiple devices.
+
 ---
 
 ## 🚀 Deployment
@@ -505,28 +517,7 @@ For club content updates, edit the relevant data arrays in these files:
 
 ---
 
-## 🎯 Future Roadmap
 
-### **Planned Features**
-- [ ] Alumni section with success stories
-- [ ] Event calendar integration
-- [ ] Member dashboard with login functionality
-- [ ] Video gallery for film screenings
-- [ ] Blog section for club updates
-- [ ] Advanced search and filtering
-- [ ] Multi-language support
-- [ ] PWA (Progressive Web App) capabilities
-
-### **Technical Improvements**
-- [ ] Backend database integration (MongoDB/PostgreSQL)
-- [ ] Authentication system for admin panel
-- [ ] Image optimization and CDN integration
-- [ ] Advanced analytics and metrics
-- [ ] API rate limiting and security enhancements
-- [ ] Automated testing suite
-- [ ] CI/CD pipeline improvements
-
----
 
 ## 📄 License
 This project is for PESU Talkies club use. For other uses, please contact the club.
