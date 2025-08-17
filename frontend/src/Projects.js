@@ -113,12 +113,16 @@ const Projects = () => {
           <p style={{ color: '#888', fontStyle: 'italic' }}>No short films found matching "{searchTerm}"</p>
         )}
         {filteredShortFilms.length > FILMS_PER_PAGE && (
-          <div className="pagination-controls" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1.2rem', marginTop: '1.5rem' }}>
-            <button onClick={handlePrevPage} disabled={page === 1} style={{ fontSize: '1.3rem', background: 'none', border: 'none', color: '#FFD600', cursor: page === 1 ? 'not-allowed' : 'pointer' }}>&lt;</button>
-            <span style={{ color: '#FFD600', fontWeight: 600 }}>
-              Page <span className={pageAnim ? 'page-number-animate' : ''}>{page}</span> of {totalPages}
+          <div className="pagination-controls">
+            <button onClick={handlePrevPage} disabled={page === 1} className="pagination-arrow">
+              &lt;
+            </button>
+            <span className={`pagination-page${pageAnim ? ' page-number-animate' : ''}`}>
+              {page} of {totalPages}
             </span>
-            <button onClick={handleNextPage} disabled={page === totalPages} style={{ fontSize: '1.3rem', background: 'none', border: 'none', color: '#FFD600', cursor: page === totalPages ? 'not-allowed' : 'pointer' }}>&gt;</button>
+            <button onClick={handleNextPage} disabled={page === totalPages} className="pagination-arrow">
+              &gt;
+            </button>
           </div>
         )}
       </div>
