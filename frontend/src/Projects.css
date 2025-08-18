@@ -1,3 +1,6 @@
+.marquee-wrapper:hover .marquee-content {
+  animation-play-state: paused;
+}
 .search-results-container {
   display: flex;
   flex-wrap: wrap;
