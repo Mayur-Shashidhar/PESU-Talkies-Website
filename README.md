@@ -29,7 +29,14 @@ This is a **full-stack application** with the following structure:
 - **Heads Page:** Lists all Club Heads and Domain Heads, with detailed, animated profile cards for each (photo, vision, etc.).
 - **Head Detail Animations:** Each head's photo is revealed with a vertical split animation (glass-like effect), and all details are styled for clarity and modernity.
 - **Domains Page:** Overview of all 11 club domains, each with a detail page and description.
-- **Projects Page:** Showcases Short Films and Series, each with detail pages (release date, premise, links, crew/cast, etc.).
+- **Projects Page:**
+  - Showcases Short Films and Series, each with detail pages (release date, premise, links, crew/cast, etc.).
+  - Short Films are displayed in a horizontal marquee with smooth, continuous scrolling animation.
+  - All short film and series cards expand and show a glowing yellow outline on hover for a modern, interactive feel.
+  - When searching, matching short films and series are shown as individual cards in a horizontal row, with the same hover effects as the marquee.
+  - Series cards now have the same expanding and yellow outline hover effect as short films.
+  - All cards are clickable and navigate to their respective detail pages.
+  - Responsive and visually consistent layout for both marquee and search results.
 - **Short Film & Series Detail Pages:**
   - Each project has a poster with animated reveal and is fully visible on mobile.
   - Crew and Cast sections for each film/series (including VAM TV, SHADOWS, THE DEVIL'S LULLABY, MISSED CONNECTIONS IN TAXI, SAMARPANE, etc.).
@@ -58,30 +65,75 @@ This is a **full-stack application** with the following structure:
 ```
 PESU-Talkies-Website/
 ├── README.md
-├── backend/                    # Express.js API Server
-│   ├── package.json           # Backend dependencies
-│   └── server.js             # Main server file with email functionality
-├── frontend/                  # React.js Application
-│   ├── package.json          # Frontend dependencies
-│   ├── public/               # Static assets
+├── backend/
+│   ├── package.json
+│   └── server.js
+├── frontend/
+│   ├── package.json
+│   ├── public/
+│   │   ├── favicon.ico
 │   │   ├── index.html
-│   │   ├── pesu-talkies-logo.png
+│   │   ├── logo192.png
+│   │   ├── logo512.png
+│   │   ├── manifest.json
 │   │   ├── pesu-logo.jpg
-│   │   ├── events/           # Event poster images
-│   │   ├── heads/            # Team member profile photos
-│   │   └── posters/          # Movie/series poster images
-│   └── src/                  # React components and styles
-│       ├── App.js            # Main app with routing & navbar
-│       ├── Chatbot.js        # AI chatbot assistant component
-│       ├── Chatbot.css       # Chatbot styling (black/yellow theme)
-│       ├── Overview.js       # Landing page with animations
-│       ├── Heads.js          # Team members display
-│       ├── Projects.js       # Films and series showcase
-│       ├── Domains.js        # Club domains overview
-│       ├── FollowUs.js       # Social media links
-│       ├── Announcements.js  # Club updates
-│       ├── Recruitments.js   # Joining information
-│       └── [Detail Pages]    # Individual pages for heads/projects/domains
+│   │   ├── pesu-talkies-logo.png
+│   │   ├── robots.txt
+│   │   ├── events/
+│   │   │   ├── CINIFEST.jpg
+│   │   │   ├── CINIQUIZZ.jpg
+│   │   │   ├── POSTER CHRONICLES.jpg
+│   │   ├── heads/
+│   │   │   ├── Apurv.jpg
+│   │   │   ├── Archi.jpg
+│   │   │   ├── Baasanthi.jpg
+│   │   │   ├── Bhanavi.jpg
+│   │   │   ├── Jayaram.jpg
+│   │   │   ├── Kushal.jpg
+│   │   │   ├── Mayur.jpg
+│   │   │   ├── Pratham.jpg
+│   │   │   ├── Rishi.jpg
+│   │   │   ├── Saumyaa.jpg
+│   │   │   ├── Sharvani.jpg
+│   │   │   ├── Somesh.jpg
+│   │   │   ├── Sourish.jpg
+│   │   │   ├── Vineeth.jpg
+│   │   │   ├── Yatharth.jpg
+│   │   ├── posters/
+│   │   │   ├── Bhrame.jpg
+│   │   │   ├── Ha.jpg
+│   │   │   ├── Kid-Naf.jpg
+│   │   │   ├── Last Page Preethi.jpg
+│   │   │   ├── MISSED CONNECTIONS IN TAXI.jpg
+│   │   │   ├── SAMARPANE.jpg
+│   │   │   ├── Shadows.jpg
+│   │   │   ├── The Devil's Lullaby.jpg
+│   │   │   ├── VAM TV.jpg
+│   └── src/
+│       ├── Announcements.js
+│       ├── App.css
+│       ├── App.js
+│       ├── App.test.js
+│       ├── Chatbot.css
+│       ├── Chatbot.js
+│       ├── DomainDetail.js
+│       ├── Domains.js
+│       ├── FollowUs.js
+│       ├── HeadDetail.js
+│       ├── Heads.css
+│       ├── Heads.js
+│       ├── index.css
+│       ├── index.js
+│       ├── logo.svg
+│       ├── Overview.css
+│       ├── Overview.js
+│       ├── Projects.js
+│       ├── Projects.css
+│       ├── Recruitments.js
+│       ├── reportWebVitals.js
+│       ├── SeriesDetail.js
+│       ├── setupTests.js
+│       ├── ShortFilmDetail.js
 ```
 
 ---
