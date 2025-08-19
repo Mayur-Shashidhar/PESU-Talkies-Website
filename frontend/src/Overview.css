@@ -495,10 +495,13 @@
   transition: transform 0.3s cubic-bezier(.25,.8,.25,1), box-shadow 0.3s, background 0.3s;
 }
 .event-placard:hover {
-  transform: scale(1.08);
+  transform: scale(1.05);
   box-shadow: 0 8px 32px rgba(255,214,0,0.18), 0 2px 24px rgba(0,0,0,0.18);
   background: #222a;
   z-index: 2;
+  border-color: #fff700;
+  box-shadow: 0 0 8px 2px #fff700, 0 8px 32px rgba(255,214,0,0.18), 0 2px 24px rgba(0,0,0,0.18);
+  /* Neon effect only for border */
 }
 .event-poster {
   width: 100%;
