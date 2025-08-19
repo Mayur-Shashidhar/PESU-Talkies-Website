@@ -32,9 +32,10 @@ This is a **full-stack application** with the following structure:
 - **Projects Page:**
   - Showcases Short Films and Series, each with detail pages (release date, premise, links, crew/cast, etc.).
   - Short Films are displayed in a horizontal marquee with smooth, continuous scrolling animation.
-  - All short film and series cards expand and show a glowing yellow outline on hover for a modern, interactive feel.
+  - **Neon Yellow Outline Effect:** All short film and series placards feature a modern neon yellow glowing outline on hover, for both the Overview and Projects pages.
+  - **Marquee Pause/Resume:** Marquee scrolling automatically pauses when the user hovers over any placard and resumes when the cursor leaves, for improved interactivity.
   - When searching, matching short films and series are shown as individual cards in a horizontal row, with the same hover effects as the marquee.
-  - Series cards now have the same expanding and yellow outline hover effect as short films.
+  - Series cards now have the same expanding and neon yellow outline hover effect as short films.
   - All cards are clickable and navigate to their respective detail pages.
   - Responsive and visually consistent layout for both marquee and search results.
 - **Short Film & Series Detail Pages:**
