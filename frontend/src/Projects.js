@@ -24,6 +24,7 @@ const seriesList = [
 // Projects: Displays all short films and series with search and navigation functionality.
 const Projects = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [isMarqueePaused, setIsMarqueePaused] = useState(false);
   const filteredSeries = seriesList.filter(series =>
     series.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -78,7 +79,7 @@ const Projects = () => {
         <h3>Short Films</h3>
         {!searchTerm ? (
           <div className="marquee-wrapper">
-            <div className="marquee-content">
+            <div className={`marquee-content${isMarqueePaused ? ' marquee-paused' : ''}`}>
               {[...shortFilms, ...shortFilms].map((film, idx) => (
                 <div
                   key={film.slug + '-' + idx}
@@ -87,6 +88,8 @@ const Projects = () => {
                   tabIndex={0}
                   role="button"
                   aria-label={`View details for ${film.name}`}
+                  onMouseEnter={() => setIsMarqueePaused(true)}
+                  onMouseLeave={() => setIsMarqueePaused(false)}
                 >
                   <img
                     src={`/posters/${film.poster}`}
