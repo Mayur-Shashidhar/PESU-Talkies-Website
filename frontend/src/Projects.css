@@ -42,7 +42,7 @@
   align-items: center;
   width: max-content;
   min-width: 200%;
-  animation: marquee 30s linear infinite;
+  animation: marquee 45s linear infinite;
   padding: 1.5rem 0;
   }
 .marquee-paused {
