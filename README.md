@@ -5,7 +5,7 @@ A modern, fully responsive **full-stack web application** for the PESU Talkies f
 ---
 
 ## 🌐 Live Website
-**Production URL:** https://pesu-talkies-website.vercel.app/ **
+**Production URL:** https://pesu-talkies.vercel.app/ **
 
 **Last Updated:** July 2025
 
